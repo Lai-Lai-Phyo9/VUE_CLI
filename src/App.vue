@@ -16,7 +16,20 @@
               <router-link class="nav-link" to="/testing">Testing <span class="sr-only">(current)</span></router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/exercise">Exercise</router-link>
+              <router-link class="nav-link" to="/exercise">ItemList</router-link>
+            </li>
+<!--             <li class="nav-item">
+              <router-link class="nav-link" to="/cart">Cart
+                <span class="badge badge-danger" v-if="cartCount>0">{{cartCount}}</span>
+              </router-link>
+            </li> -->
+            <li class="nav-item">
+              <router-link class="nav-link" to="/shoppingcart">ShoppingCart
+                <span class="badge badge-danger" v-if="cartCount>0">{{cartCount}}</span>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/order">Order</router-link>
             </li>
           </ul>
         </div>
@@ -44,6 +57,12 @@ export default {
   name: 'App',
   mounted(){
       // this.$router.replace('/home')
+  },
+  computed:{
+    cartCount(){
+      this.$store.dispatch('getData')
+      return this.$store.state.cart.length
+    }
   }
 };
 </script>

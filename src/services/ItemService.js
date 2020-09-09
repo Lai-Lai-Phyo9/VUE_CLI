@@ -10,13 +10,13 @@ const apiClient = axios.create({
 })
 
 export default{
-  // index (Exercise)
   getItems(){
     return apiClient.get('/items')
   },
-
-  // detail (Detail)
   getItem(id){
     return apiClient.get('/items/'+id)
-  }
+  },
+  createOrder(data){
+    return apiClient.post('/orders',data)
+  },
 }
